@@ -19,6 +19,7 @@ import { localRemove, useLocalStorage } from "@/lib/useLocalStorage";
 import { LiveBoard } from "./LiveBoard";
 import { FisiModal } from "./Slips";
 import { AppShell, CikisButton } from "./AppShell";
+import { TelemetrySection } from "./TelemetryPanel";
 import { Badge, Button, Card, Field, Input, SectionTitle, Select, Stat } from "./ui";
 
 type Yolcu = { ad: string; soyad: string; kimlik: string; telefon: string };
@@ -251,6 +252,8 @@ export function UserPanel() {
 
       <SectionTitle>Canlı Sefer Ekranı</SectionTitle>
       <LiveBoard seferler={seferler} onSelect={seferSec} selectedId={secili?.instanceId} />
+
+      <TelemetrySection seferler={seferler} />
 
       {secili ? (
         <Card className="mt-6 overflow-hidden">

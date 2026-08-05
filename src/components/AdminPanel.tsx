@@ -27,6 +27,7 @@ import { localRemove, useLocalStorage } from "@/lib/useLocalStorage";
 import { tarihTr, tl, uid } from "@/lib/format";
 import { AppShell, CikisButton } from "./AppShell";
 import { FisiModal } from "./Slips";
+import { TelemetrySection } from "./TelemetryPanel";
 import {
   Badge,
   Button,
@@ -583,7 +584,8 @@ export function AdminPanel() {
       ) : null}
 
       {tab === "ayarlar" ? (
-        <div className="grid gap-4 md:grid-cols-2">
+        <>
+          <div className="grid gap-4 md:grid-cols-2">
           <Card className="p-5">
             <SectionTitle>Bağlantı Durumu</SectionTitle>
             {demo ? (
@@ -631,6 +633,10 @@ NEXT_PUBLIC_ADMIN_PASS=scsttadmin34`}
             </p>
           </Card>
         </div>
+        <div className="mt-4">
+          <TelemetrySection seferler={seferler} />
+        </div>
+        </>
       ) : null}
 
       <SeferFormModal
